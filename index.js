@@ -1,7 +1,18 @@
-var http = require('http');
+// Importing the express module
+const express = require('express');
+const app = express();
 
-//create a server object:
-http.createServer(function (req, res) {
-  res.write('Node js App on ec2'); //write a response to the client
-  res.end(); //end the response
-}).listen(80); //the server object listens on port 80
+// Initializing the data with the following string
+var data = "Nodejs App on ec2";
+
+// Sending the response for '/' path
+app.get('/' , (req,res)=>{
+
+   // Sending the data json text
+   res.send(data);
+})
+
+// Setting up the server at port 3000
+app.listen(3000 , ()=>{
+   console.log("server running");
+});
